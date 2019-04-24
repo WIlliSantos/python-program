@@ -1,8 +1,10 @@
 language: python
 python:
-  - "2.7"
+  - "3.6"
 cache: pip
 install:
-  - pip install unittest2
+  - pip3 install unittest
+  - pip3 install unittest
 script:
-  - python helloworld.py
+  - python3 -m unittest test_calc.py
+  - python3 calculadora.py
