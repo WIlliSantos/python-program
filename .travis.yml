@@ -3,8 +3,7 @@ python:
   - "3.6"
 cache: pip
 install:
-  - pip3 install unittest
-  - pip3 install unittest
+  - pip install unittest
 script:
-  - python3 -m unittest test_calc.py
-  - python3 calculadora.py
+  - python -m unittest test_calc.py
+  - python calculadora.py
