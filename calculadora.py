@@ -10,6 +10,8 @@ def multiplicacao(x, y):
 def divisao(x, y):
    return x / y
 
+print ("Programa rodou")
+
 #print("Selecione a operação.")
 #print("1.Soma")
 #print("2.Subtração")

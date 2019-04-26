@@ -15,6 +15,14 @@ after_success:
   - pip install --user awscli
   - export PATH=$PATH:$HOME/.local/bin
   - eval $(aws ecr get-login --region us-east-1)
-  - docker build -t calculadora.py .
+  - docker build -t calculadora .
   - docker tag calculadora:latest 199886244715.dkr.ecr.us-east-1.amazonaws.com/calculadora:latest
   - docker push 199886244715.dkr.ecr.us-east-1.amazonaws.com/calculadora:latest
+
+  env:
+  global:
+  - DOCKER_REPO=myorg/veryimportantimage
+  - EB_REGION="us-east-1"
+  - secure: travisEncryptedAWS_ACCOUNT_ID
+  - secure: travisEncryptedAWS_ACCESS_KEY_ID
+  - secure: travisEncryptedAWS_SECRET_ACCESS_KEY
