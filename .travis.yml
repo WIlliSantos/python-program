@@ -1,9 +1,20 @@
+sudo: required
 language: python
 python:
   - "3.6"
 cache: pip
+services:
+  - docker
 install:
   - pip install unittest2
 script:
   - python calculadora.py
   - python -m unittest test_calc.py
+after_success:
+  - docker --version
+  - pip install --user awscli
+  - export PATH=$PATH:$HOME/.local/bin
+  - eval $(aws ecr get-login --region us-east-1)
+  - docker build -t calculadora.py .
+  - docker tag calculadora:latest 199886244715.dkr.ecr.us-east-1.amazonaws.com/calculadora:latest
+  - docker push 199886244715.dkr.ecr.us-east-1.amazonaws.com/calculadora:latest
