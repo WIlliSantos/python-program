@@ -4,6 +4,13 @@ python:
   - "3.6"
 services:
   - docker
+env:
+global:
+  - DOCKER_REPO=calculadora
+  - EB_REGION="us-east-1"
+  - secure: $AWS_ACCOUNT_ID
+  - secure: $AWS_ACCESS_KEY_ID
+  - secure: $AWS_SECRET_ACCESS_KEY
 install:
   - pip install unittest2
 script:
