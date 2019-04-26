@@ -1,0 +1,37 @@
+{
+  "family": "calculadora",
+  "containerDefinitions": [
+    {
+      "memory": 1000,
+      "environment": [
+          {
+              "name": "ENVIRONMENT",
+              "value": "homologation"
+          },
+          {
+              "name": "JAVA_XMX",
+              "value": "SET_JAVA_XMX"
+          }
+      ],
+      "name": "Calculadora",
+      "mountPoints": [],
+      "image": "199886244715.dkr.ecr.us-east-1.amazonaws.com/calculadora:IMAGE_VERSION",
+      "cpu": 1000,
+      "portMappings": [
+          {
+              "protocol": "tcp",
+              "containerPort": 8080,
+              "hostPort": 8080
+          }
+      ],
+      "logConfiguration": {
+          "logDriver": "syslog",
+          "options": {
+              "tag": "calculadora"
+          }
+      },
+      "essential": true,
+      "volumesFrom": []
+    }
+  ]
+}
